@@ -9,7 +9,8 @@
       <figure>
         <img class="w-full" :src="api + fake.image.data" />
       </figure>
-      <div>{{ fake.caption }}</div>
+      <div>{{ dataset.date | formatDate }}</div>
+      <div>{{ dataset.caption }}</div>
     </div>
   </div>
 </template>
