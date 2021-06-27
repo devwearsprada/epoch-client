@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  ssr: 'true',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Epoch',
@@ -15,12 +15,14 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL,
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['@/assets/css/tailwind.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/filters.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -34,8 +36,10 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    baseURL: process.env.BASE_URL,
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
