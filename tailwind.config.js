@@ -8,7 +8,12 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'primary-regular': ['NeueMachina', 'Serif'],
+        'secondary-regular': ['BeaufortBold', 'Serif'],
+      },
+    },
   },
   variants: {
     extend: {},

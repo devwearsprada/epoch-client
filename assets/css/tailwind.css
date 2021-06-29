@@ -1,9 +1,10 @@
+@import '~/assets/css/fonts.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-  @apply bg-black text-white;
+  @apply bg-black text-white text-xl leading-6 font-primary-regular;
 }
 
 body {

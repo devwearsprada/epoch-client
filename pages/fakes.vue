@@ -1,16 +1,35 @@
 <template>
-  <div class="container w-full">
-    <div
-      v-for="(fake, i) in fakes"
-      :key="`${i}-dataset`"
-      class="grid pb-8 pt-4"
-    >
-      <div>@{{ fake.account }}</div>
+  <div class="w-full">
+    <div v-for="(fake, i) in fakes" :key="`${i}-dataset`" class="grid pb-8">
+      <div class="flex space-x-4 p-2">
+        <div v-if="fake.avatar">
+          <img
+            class="w-16 h-16 object-cover object-center rounded-full"
+            :src="api + fake.avatar.data"
+          />
+        </div>
+        <div v-else>
+          <img
+            class="w-16 h-16 object-cover object-center rounded-full"
+            src="~/assets/images/default-profile.jpg"
+          />
+        </div>
+        <div class="flex-grow flex flex-col justify-center">
+          <div class="text-3xl font-bold leading-snug font-secondary-regular">
+            {{ fake.account }}
+          </div>
+          <div class="leading-snug">{{ fake.date | formatDate }}</div>
+        </div>
+      </div>
       <figure>
         <img class="w-full" :src="api + fake.image.data" />
       </figure>
-      <div>{{ fake.date | formatDate }}</div>
-      <div>{{ fake.caption }}</div>
+      <div class="p-2">
+        <span class="text-3xl font-bold font-secondary-regular mr-1">{{
+          fake.account
+        }}</span>
+        {{ fake.caption }}
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +43,7 @@ export default {
       fakes: [],
       fetchInterval: null,
       scrollTimeout: null,
+      moving: false,
     }
   },
   mounted() {
@@ -31,7 +51,7 @@ export default {
     this.fetchDatasets()
     this.fetchInterval = setInterval(() => {
       this.fetchDatasets()
-    }, 1000 * 60 * 15) // 15 minutes
+    }, 1000 * 60 * 5) // 15 minutes
 
     const scrollQuery = this.$route.query.scroll
     if (scrollQuery && (scrollQuery === 'true' || scrollQuery === true)) {
@@ -48,12 +68,17 @@ export default {
     pageScroll() {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         // reset to top
-        window.scrollTo(0, 0)
-      } else {
+        this.moving = true
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+        setTimeout(() => {
+          this.moving = false
+        }, 1000)
+      } else if (!this.moving) {
         // scroll down 1 pixel
-        window.scrollBy(0, 1)
+        window.scrollBy({ top: 1, left: 0 })
       }
-      this.scrollTimeout = setTimeout(this.pageScroll, 1000)
+
+      this.scrollTimeout = setTimeout(this.pageScroll, 200)
     },
   },
 }

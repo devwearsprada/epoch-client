@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'BeaufortBold';
+  font-weight: normal;
+  font-style: normal;
+  src: url('~assets/fonts/Beaufort-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NeueMachina';
+  font-weight: normal;
+  font-style: normal;
+  src: url('~assets/fonts/Neue-Machina-Regular.woff') format('woff');
+}
