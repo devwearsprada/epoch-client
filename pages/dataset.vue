@@ -6,18 +6,21 @@
       class="grid pb-8"
     >
       <div class="flex space-x-4 p-2">
-        <div v-if="dataset.avatar">
-          <img
-            class="w-16 h-16 object-cover object-center rounded-full"
-            :src="api + dataset.avatar.data"
-          />
-        </div>
-        <div v-else>
-          <img
-            class="w-16 h-16 object-cover object-center rounded-full"
-            src="~/assets/images/default-profile.jpg"
-          />
-        </div>
+        <img
+          v-if="dataset.account === 'gymshark'"
+          class="w-16 h-16 object-cover object-center rounded-full"
+          src="~/assets/images/gymshark-profile.jpg"
+        />
+        <img
+          v-if="dataset.account === 'patmcgrathreal'"
+          class="w-16 h-16 object-cover object-center rounded-full"
+          src="~/assets/images/patmcgrath-profile.jpg"
+        />
+        <img
+          v-if="dataset.account === 'tunameltsmyheart'"
+          class="w-16 h-16 object-cover object-center rounded-full"
+          src="~/assets/images/tunameltsmyheart-profile.jpg"
+        />
         <div class="flex-grow flex flex-col justify-center">
           <div class="text-3xl font-bold leading-snug font-secondary-regular">
             {{ dataset.account }}

@@ -10,8 +10,19 @@
         </div>
         <div v-else>
           <img
+            v-if="fake.account === 'gymshark'"
             class="w-16 h-16 object-cover object-center rounded-full"
-            src="~/assets/images/default-profile.jpg"
+            src="~/assets/images/gymshark-generated-profile.png"
+          />
+          <img
+            v-if="fake.account === 'patmcgrathreal'"
+            class="w-16 h-16 object-cover object-center rounded-full"
+            src="~/assets/images/patmcgrath-generated-profile.png"
+          />
+          <img
+            v-if="fake.account === 'tunameltsmyheart'"
+            class="w-16 h-16 object-cover object-center rounded-full"
+            src="~/assets/images/tunameltsmyheart-generated-profile.png"
           />
         </div>
         <div class="flex-grow flex flex-col justify-center">
