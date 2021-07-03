@@ -27,7 +27,7 @@
         </div>
         <div class="flex-grow flex flex-col justify-center">
           <div class="text-3xl font-bold leading-snug font-secondary-regular">
-            {{ fake.account }}
+            {{ fake.account }}.fake
           </div>
           <div class="leading-snug">{{ fake.date | formatDate }}</div>
         </div>
@@ -36,9 +36,9 @@
         <img class="w-full" :src="api + fake.image.data" />
       </figure>
       <div class="p-2">
-        <span class="text-3xl font-bold font-secondary-regular mr-1">{{
-          fake.account
-        }}</span>
+        <span class="text-3xl font-bold font-secondary-regular mr-1">
+          {{ fake.account }}
+        </span>
         {{ fake.caption }}
       </div>
     </div>
@@ -89,7 +89,7 @@ export default {
         window.scrollBy({ top: 1, left: 0 })
       }
 
-      this.scrollTimeout = setTimeout(this.pageScroll, 200)
+      this.scrollTimeout = setTimeout(this.pageScroll, 100)
     },
   },
 }

@@ -85,7 +85,7 @@ export default {
         window.scrollBy({ top: 1, left: 0 })
       }
 
-      this.scrollTimeout = setTimeout(this.pageScroll, 200)
+      this.scrollTimeout = setTimeout(this.pageScroll, 100)
     },
   },
 }
