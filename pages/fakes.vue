@@ -37,7 +37,7 @@
       </figure>
       <div class="p-2">
         <span class="text-3xl font-bold font-secondary-regular mr-1">
-          {{ fake.account }}
+          {{ fake.account }}.fake
         </span>
         {{ fake.caption }}
       </div>
